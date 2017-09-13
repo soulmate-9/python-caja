@@ -1,0 +1,31 @@
+1.16.0
+
+  * Examples: fix Caja crash on loading background-image
+    extension
+  * Examples: various fixes
+  * Translations update
+
+1.14.0
+
+  * Expose filenames of Python extensions to Caja
+    (needed for showing each Python extension as
+    a separate entry in the extensions list)
+  * Fix missing icon in About dialog
+  * Fix Changelog generation
+
+1.12.0
+
+  * Translations update
+
+1.10.0
+
+  * Bugfixes
+  * Add about window for caja extensions tab
+
+1.8.1 Bugfix release
+
+  * Use pkg-config for python detection and variables
+
+1.8.0
+
+  * Bugfixes
