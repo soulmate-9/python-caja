@@ -1,0 +1,177 @@
+python-caja (1.18.0-2+soulmate.is.1.16.0+1.1) stretch; urgency=medium
+
+  * Non-maintainer upload.
+  * Downgrade to version 1.16.0-1 to avoid desktop redraw issues
+
+ -- Luis Antonio Garcia Gisbert <luisgg@gmail.com>  Wed, 13 Sep 2017 22:04:43 +0000
+
+python-caja (1.16.0-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/copyright:
+    + Update copyright attributions.
+
+  [ Vangelis Mouhtsis ]
+  * debian/changelog:
+    + Fix missing changelog items for 1.15.0-0ubuntu1 upload.
+  * debian/control:
+    + Dependencies updated for MATE 1.16.
+  * debian/watch:
+    + Update version matching again to _not_ support development releases.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Mon, 03 Oct 2016 21:53:47 +0200
+
+python-caja (1.15.0-0ubuntu1) yakkety; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream development release.
+  * debian/control:
+    + Dependencies updated for MATE 1.15.
+  * debian/watch:
+    + Update version matching to support development releases.
+
+  [ Vangelis Mouhtsis ]
+  * debian/{control,rules}:
+    + dbgsym: Don't build dbg:packages anymore.
+      See https://wiki.debian.org/AutomaticDebugPackages.
+
+ -- Martin Wimpress <code@flexion.org>  Fri, 09 Sep 2016 13:04:48 +0100
+
+python-caja (1.14.0-1) unstable; urgency=medium
+
+  [ Vangelis Mouhtsis ]
+  * debian/control:
+    + Use encrypted URLs for Vcs-*: field.
+    + Versioned B-D on dpkg-dev (>= 1.16.1.1).
+  * debian/rules:
+    + Enable all hardening flags.
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/control:
+    + Versioned B-D: libcaja-extension-dev (>= 1.14)
+    + Versioned B-D: mate-common (>= 1.14)
+    + Processed with wrap-and-sort.
+
+  [ Mike Gabriel ]
+  * debian/control:
+    + Bump Standards: to 3.9.8. No changes needed.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Wed, 25 May 2016 17:05:34 +0200
+
+python-caja (1.12.0-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * New upstream release.
+  * debian/control:
+    + Versioned B-D: mate-common (>= 1.12) and libcaja-extension-dev (>= 1.12).
+  * debian/pycompat:
+    + Not used by any modern Python helper. Removed.
+
+  [ Mike Gabriel ]
+  * Make build reproducible. Thanks to Cris Lamb for providing the patch.
+    (Closes: #809027).
+  * debian/control:
+    + Fix grammar error in LONG_DESCRIPTION of several bin:packages.
+  * lintian:
+    + Drop non-used-anymore override: postrm-has-useless-call-to-ldconfig
+      (python-caja).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Sat, 02 Jan 2016 08:51:03 +0100
+
+python-caja (1.10.0-2) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * debian/control:
+    + B-D libgirepository1.0-dev.
+  * debian/patches:
+    + Add 2001_fix-python-libdir-not-found.patch.
+
+  [ Mike Gabriel ]
+  * debian/patches:
+    + Add README file explaining about patch naming scheme.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Thu, 17 Sep 2015 11:11:21 +0200
+
+python-caja (1.10.0-1) unstable; urgency=medium
+
+  [ Martin Wimpress ]
+  * debian/python-caja.install:
+    + Remove usr/share/doc/python-caja/
+  * debian/python-caja-common.install:
+    + Add usr/share/doc/.
+
+  [ Mike Gabriel ]
+  * Upload to unstable.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 21 Aug 2015 17:22:29 +0200
+
+python-caja (1.10.0-1~exp2) experimental; urgency=medium
+
+  * debian/python-caja*.install:
+    + Make sure, both packages don't share common files. (Closes: #789626).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 14 Jul 2015 20:17:43 +0200
+
+python-caja (1.10.0-1~exp1) experimental; urgency=medium
+
+  * New upstream release.
+  * debian/control:
+    + Add python-caja-common.
+  * debian/patches:
+    + Drop 1001_multi-arch-libdir-in-pkgconfig.patch. Applied upstream.
+    + Drop 1002_dont-install-xsl-files.patch. Applied upstream.
+    + Drop 2001_debian-python-multiarch.patch. Debian bug #770935 has
+      been fixed. This patch is no longer required.
+
+  [ Mike Gabriel ]
+  * debian/control:
+    + Versioned B-D: mate-common (>= 1.10).
+    + Add Martin Wimpress to Uploaders: field.
+  * debian/copyright:
+    + Update for this upstream release. Provide info for po/*.po.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 19 Jun 2015 15:33:46 +0200
+
+python-caja (1.8.1-2) unstable; urgency=medium
+
+  [ Vangelis Mouhtsis ]
+  * debian/control:
+    + Fix typo in python-caja-dbg LONG_DESCRIPTION. (Closes: #768819, #768820).
+
+  [ Mike Gabriel ]
+  * debian/patches:
+    + Add 1002_dont-install-xsl-files.patch. Stop attempting to install XSL
+      docbook source files into bin:package. (Closes: #770927).
+    + Add 2001_debian-python-multiarch.patch. Enforce usage of multiarch path
+      for PY_LIB_LOC. (Closes: 766879, LP: #1170017).
+  * lintian:
+    + Add overrides for debhelper's erroneously triggered makeshlibs script.
+
+ -- Mike Gabriel <sunweaver@debian.org>  Tue, 25 Nov 2014 14:51:43 +0100
+
+python-caja (1.8.1-1) unstable; urgency=medium
+
+  [ Vangelis Mouhtsis ]
+  * debian/rules:
+    + Replace on dh_install --list-missing -> --fail-missing
+  * debian/control:
+    + Bump Standards: to 3.9.6. No changes needed.
+
+  [ Mike Gabriel ]
+  * New upstream release.
+    - Detect Python variables via pkg-config. (LP: #1170017).
+  * debian/patches:
+    + Add 1001_multi-arch-libdir-in-pkgconfig.patch. Put multi-arch linker
+      path in caja-python.pc.
+  * debian/rules:
+    + Provide an empty caja-python/extensions folder (with .placeholder file).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 24 Oct 2014 22:30:57 +0200
+
+python-caja (1.8.0-1) unstable; urgency=low
+
+  * Initial release. (Closes: #734993).
+
+ -- Mike Gabriel <sunweaver@debian.org>  Fri, 25 Apr 2014 10:00:21 +0200
